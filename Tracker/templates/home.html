@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Home
+{% endblock title %}
+
+{% block content %}
+<h1>👋Hello, {{name}}</h1>
+<p class="text-2xl font-bold ">This is an example of django template</p>
+<img src="{{ STATIC_URL }}static/img/traumatised soldier.jpg" width="400" height="400" alt="My Image">
+{% endblock content %}
+
