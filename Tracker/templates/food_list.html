@@ -1,0 +1,39 @@
+{% extends 'tracker/base.html' %}
+
+{% block content %}
+<div class="dashboard">
+  <div class="summary">
+    <h2>Today: {{ today }}</h2>
+    <div class="total_calories">
+      <span>Total Calories</span>
+      <span class="calories_value">{{ total_calories }}</span>
+    </div>
+  </div>
+  <div class="actions">
+        <a href="{% url 'tracker:add_food' %}" class="btn">Add Food</a>
+        <a href="{% url 'tracker:reset_calories' %}" class="btn reset">Reset All</a>
+    </div>
+
+    <div class="food-list">
+        <h3>Food Items</h3>
+        {% if food_items %}
+            <ul>
+                {% for food in food_items %}
+                <li class="food-item">
+                    <div class="food-info">
+                        <span class="food-name">{{ food.name }}</span>
+                        <span class="food-calories">{{ food.calories }} cal</span>
+                    </div>
+                    <form action="{% url 'tracker:delete_food' food.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="delete-btn">Delete</button>
+                    </form>
+                </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="empty">No food items added yet.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

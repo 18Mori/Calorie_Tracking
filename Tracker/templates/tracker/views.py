@@ -8,7 +8,7 @@ def food_list(request):
     today = timezone.now().date()
     food_items = Food.objects.all()
     total_calories = Food.objects.filter(made_at__date=today).aggregate(Sum('calories'))['calories__sum'] or 0
-    return render(request, 'tracker/food_list.html', {'food_items': food_items, 'total_calories': total_calories})
+    return render(request, 'tracker/food_list.html', {'food_items': food_items, 'total_calories': total_calories, 'today': today})
 
 def add_food(request):
     if request.method == 'POST':
