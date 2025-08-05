@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="add-food-form">
+    <h2>Add New Food Item</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="name">Food Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="calories">Calories:</label>
+            <input type="number" id="calories" name="calories" min="1" required>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn">Add Food</button>
+            <a href="{% url 'food_list' %}" class="btn cancel">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

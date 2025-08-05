@@ -1,4 +1,4 @@
-{% extends 'tracker/base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
 <div class="dashboard">
@@ -10,8 +10,8 @@
     </div>
   </div>
   <div class="actions">
-        <a href="{% url 'tracker:add_food' %}" class="btn">Add Food</a>
-        <a href="{% url 'tracker:reset_calories' %}" class="btn reset">Reset All</a>
+        <a href="{% url 'add_food' %}" class="btn">Add Food</a>
+        <a href="{% url 'reset_calories' %}" class="btn reset">Reset All</a>
     </div>
 
     <div class="food-list">
