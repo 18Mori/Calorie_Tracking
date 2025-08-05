@@ -24,7 +24,7 @@
                         <span class="food-name">{{ food.name }}</span>
                         <span class="food-calories">{{ food.calories }} cal</span>
                     </div>
-                    <form action="{% url 'tracker:delete_food' food.id %}" method="post">
+                    <form action="{% url 'delete_food' food.id %}" method="post">
                         {% csrf_token %}
                         <button type="submit" class="delete-btn">Delete</button>
                     </form>
